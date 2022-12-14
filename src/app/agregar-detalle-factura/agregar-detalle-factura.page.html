@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="danger">
+    <ion-title>
+      Facturación
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-header [translucent]="true">
+  <ion-toolbar color="medium">
+    <ion-title>
+     <h5>Nombre/Razón Social: La Electromecanica</h5> 
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item>
+      <ion-select placeholder="Seleccione un servicio" [(ngModel)]="servicioSeleccionado">
+        <ion-select-option value="{{item.cod_servicio}}" *ngFor="let item of servicios">{{item.descripcion}}</ion-select-option>
+
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <ion-item>
+    <ion-label>Cantidad:</ion-label>
+    <ion-input [(ngModel)]="cantidad"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Precio:</ion-label>
+    <ion-input [(ngModel)]="precio"></ion-input>
+  </ion-item>
+ 
+
+<ion-button (click)="guardar()" color="success" expand="block"  shape="round">
+  Guardar
+</ion-button>
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="medium">
+    <ion-title>Universidad Autónoma de Asunción</ion-title>
+  </ion-toolbar>
+</ion-footer>
+
+

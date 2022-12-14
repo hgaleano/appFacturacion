@@ -11,6 +11,14 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'nueva-factura',
+    loadChildren: () => import('./nueva-factura/nueva-factura.module').then( m => m.NuevaFacturaPageModule)
+  },
+  {
+    path: 'agregar-detalle-factura',
+    loadChildren: () => import('./agregar-detalle-factura/agregar-detalle-factura.module').then( m => m.AgregarDetalleFacturaPageModule)
+  },
 ];
 
 @NgModule({

@@ -1,0 +1,66 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="danger">
+    <ion-title>
+      Facturación
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-header [translucent]="true">
+  <ion-toolbar color="medium">
+    <ion-title>
+     <h5>Nombre/Razón Social: La Electromecanica</h5> 
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item>
+      <ion-select placeholder="Seleccione un cliente" [(ngModel)]="clienteSeleccionado">
+        <ion-select-option value="{{item.cod_cliente}}" *ngFor="let item of clientes">{{item.nombre}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+ 
+  <ion-button *ngIf="cod_factura==undefined" (click)="generar_factura()" expand="block"  shape="round">
+    Generar Factura
+  </ion-button>
+<ion-grid fixed>
+  <ion-row class="titulo">
+    <ion-col size="4">Servicio</ion-col>
+    <ion-col size="3">Cantidad</ion-col>
+    <ion-col size="2">Precio</ion-col>
+    <ion-col size="2"></ion-col>
+  </ion-row>
+
+  <ion-row class="detalle" *ngFor="let item of detalle_factura">
+    <ion-col size="4">{{item.descripcion}}</ion-col>
+    <ion-col size="3">{{item.cantidad}}</ion-col>
+    <ion-col size="2">{{item.precio}}</ion-col>
+    <ion-col size="2"></ion-col>
+  </ion-row>
+</ion-grid>
+
+<ion-label>Total:{{total_pagar}}</ion-label>
+
+
+<ion-button (click)="finalizarVenta()" color="danger" expand="block"  shape="round">
+ Finalizar venta
+</ion-button>
+
+
+<ion-fab slot="fixed" vertical="bottom" horizontal="center" (click)="agregar_detalle()">
+  <ion-fab-button >
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="medium">
+    <ion-title>Universidad Autónoma de Asunción</ion-title>
+  </ion-toolbar>
+</ion-footer>
+
+
